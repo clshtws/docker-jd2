@@ -13,7 +13,8 @@ ENV TITLE=jDownloader2
 RUN \
   echo "**** install packages ****" && \
   apt-get update && \
-  apt-get install -y ffmpeg curl bash default-jre fonts-dejavu && \
+  apt-get install --no-install-recommends -y \
+  ffmpeg curl bash default-jre fonts-dejavu && \
   #apk add --no-cache java-common openjdk8-jre jq ttf-dejavu curl ffmpeg rtmpdump moreutils && \
   echo "**** add icon ****" && \
   curl -o \
