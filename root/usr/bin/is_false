@@ -1,0 +1,16 @@
+#!/bin/sh
+
+is_false() {
+    case "${1,,}" in
+        0 | false | n | no | disabled | disable | off) return 0 ;;
+        *) return 1 ;;
+    esac
+}
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <value>" >&2
+    exit 1
+fi
+
+is_false "$1"
+exit $?
