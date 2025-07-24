@@ -12,6 +12,7 @@ ENV TITLE=jDownloader2
 
 RUN \
   echo "**** install packages ****" && \
+  mkdir -p /usr/share/man/man1/ && \
   apt-get update && \
   apt-get install --no-install-recommends -y \
   ffmpeg curl bash default-jre fonts-dejavu && \
