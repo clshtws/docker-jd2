@@ -19,7 +19,14 @@ RUN \
     https://raw.githubusercontent.com/jlesage/docker-templates/master/jlesage/images/jdownloader-2-icon.png && \
   echo "**** download jar ****" && \
   mkdir -p /defaults && \
-  curl -# -L -o /defaults/JDownloader.jar ${JDOWNLOADER_URL}
+  curl -# -L -o /defaults/JDownloader.jar ${JDOWNLOADER_URL} && \
+  echo "**** cleanup ****" && \
+  apt-get autoclean && \
+  rm -rf \
+    /config/.cache \
+    /var/lib/apt/lists/* \
+    /var/tmp/* \
+    /tmp/*
 
 # add local files
 COPY /root /
