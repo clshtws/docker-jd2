@@ -21,7 +21,6 @@ RUN \
   mkdir -p /defaults && \
   curl -# -L -o /defaults/JDownloader.jar ${JDOWNLOADER_URL} && \
   echo "**** cleanup ****" && \
-  apt-get autoclean && \
   rm -rf \
     /config/.cache \
     /var/lib/apt/lists/* \
