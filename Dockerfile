@@ -12,7 +12,9 @@ ENV TITLE=jDownloader2
 
 RUN \
   echo "**** install packages ****" && \
-  apk add --no-cache java-common openjdk8-jre jq ttf-dejavu curl ffmpeg rtmpdump moreutils && \
+  apt-get update && \
+  apt-get install -y ffmpeg curl bash openjdk-18-jre fonts-dejavu && \
+  #apk add --no-cache java-common openjdk8-jre jq ttf-dejavu curl ffmpeg rtmpdump moreutils && \
   echo "**** add icon ****" && \
   curl -o \
     /usr/share/selkies/www/icon.png \
@@ -21,6 +23,7 @@ RUN \
   mkdir -p /defaults && \
   curl -# -L -o /defaults/JDownloader.jar ${JDOWNLOADER_URL} && \
   echo "**** cleanup ****" && \
+  apt-get clean && \
   rm -rf \
     /config/.cache \
     /var/lib/apt/lists/* \
